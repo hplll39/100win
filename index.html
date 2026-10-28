@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#0d1021" />
-<meta name="description" content="창작 캐릭터 이동화 선생님의 아이폰을 구경하는 인터랙티브 웹사이트 시제품" />
-<title>이동화의 iPhone — 오프라인 완성본</title>
+<meta name="description" content="이동화의 iPhone" />
+<title>이동화의 iPhone</title>
 <style>
 :root{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;color:#fff;color-scheme:dark;-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;overscroll-behavior:none}button,input{font:inherit}button{color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}button:focus-visible,.app:focus-visible,.message-item:focus-visible{outline:2px solid #a0b4ff;outline-offset:3px}
@@ -288,19 +288,99 @@ body{background:radial-gradient(ellipse at 18% 18%,#26203e 0%,transparent 40%),r
 .appscreen.naver-mode .back{color:#03a74d}
 .appscreen.naver-mode .app-body{color:#222}
 
+
+/* Search-centric Naver-style layout with consistently aligned vector icons. */
+.page{justify-content:center;gap:0;padding:20px}
+.app-grid{grid-template-columns:repeat(4,minmax(0,1fr));column-gap:2px;justify-items:stretch}
+.app-grid .app{min-width:0;width:100%;align-items:center;justify-content:flex-start}
+.app-grid .app-icon{flex:0 0 auto}
+.app-grid .app-label{display:block;min-height:15px;line-height:15px;text-align:center}
+.home-dock{justify-content:space-evenly}
+.home-dock .app{width:62px;flex:none}
+.home-dock .app-icon{flex:none;width:58px;height:58px}
+.app-icon.naver{border-radius:16px;display:flex;align-items:center;justify-content:center;background:#03c75a}
+.naver-icon-letter{padding:0;letter-spacing:-2px;transform:none;font:bold 42px/1 Arial,Helvetica,sans-serif;color:#fff}
+.appscreen.naver-mode{background:#fff;color:#191919}
+.appscreen.naver-mode .apphead{display:none}
+.appscreen.naver-mode .app-body{padding:0;background:#fff;color:#191919;scrollbar-width:none}
+.naver-app{min-height:100%;box-sizing:border-box;background:#fff;padding:0 0 62px;color:#191919;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",Arial,sans-serif}
+.naver-app *{box-sizing:border-box}
+.nv-top{height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;gap:12px}
+.nv-top-left,.nv-top-right{display:flex;align-items:center;gap:14px}
+.nv-icon-btn{appearance:none;border:0;background:none;color:#333;width:28px;height:32px;padding:3px;display:grid;place-items:center}
+.nv-icon-btn svg{display:block;width:22px;height:22px;stroke-width:1.85;stroke-linecap:round;stroke-linejoin:round}
+.nv-wordmark{font-family:Arial,Helvetica,sans-serif;font-size:24px;line-height:1;font-weight:900;letter-spacing:-1.9px;color:#03c75a}
+.nv-content{padding:6px 18px 0}
+.nv-search-wrap{border-radius:17px;border:2px solid #03c75a;background:#fff;box-shadow:0 5px 20px rgba(0,151,65,.09);height:54px;padding:0 8px 0 12px;display:flex;align-items:center;gap:10px;width:100%}
+.nv-search-mark{color:#03c75a;display:grid;place-items:center;flex:0 0 23px;font:bold 25px/1 Arial,Helvetica,sans-serif}
+.nv-search-wrap input{border:0;outline:0;background:transparent;color:#202020;font-size:14px;line-height:1.2;flex:1;min-width:0;padding:0;box-shadow:none;-webkit-appearance:none}
+.nv-search-wrap input::placeholder{color:#a5a7ad}
+.nv-tool,.nv-search-submit{background:none;border:0;display:grid;place-items:center;padding:0;width:25px;height:30px;color:#777;flex:0 0 auto}
+.nv-tool svg,.nv-search-submit svg{display:block;width:19px;height:19px;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.nv-search-submit{color:#03c75a;width:27px}
+.nv-search-submit svg{width:22px;height:22px;stroke-width:2.3}
+.nv-suggestions-head{display:flex;align-items:center;justify-content:space-between;margin:27px 0 10px;gap:12px}
+.nv-suggestions-head strong{font-size:16px;font-weight:750;letter-spacing:-.35px}
+.nv-suggestions-head span{font-size:11px;color:#92979e;white-space:nowrap}
+.nv-suggestions{border-top:1px solid #e8eaed}
+.nv-suggestion{display:flex;align-items:center;width:100%;padding:12px 0;gap:11px;min-height:47px;background:#fff;color:#2c3034;text-align:left;border:0;border-bottom:1px solid #eff0f2;font-size:13px;line-height:1.3}
+.nv-suggestion .nv-sug-icon{display:grid;place-items:center;flex:0 0 20px;width:20px;height:20px;color:#939aa3}
+.nv-suggestion svg{display:block;width:17px;height:17px;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.nv-suggestion .nv-sug-text{flex:1;min-width:0;overflow-wrap:anywhere}
+.nv-suggestion .nv-sug-action{flex:none;color:#a6abb0;display:grid;place-items:center;width:17px;height:17px}
+.nv-quick-title{font-size:15px;font-weight:750;letter-spacing:-.35px;margin:24px 0 13px}
+.nv-quick-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 4px;text-align:center}
+.nv-quick{min-width:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.nv-quick-glyph{width:43px;height:43px;border-radius:14px;display:grid;place-items:center;background:var(--quick-bg,#f2f4f7);color:var(--quick-fg,#394558)}
+.nv-quick-glyph svg{width:23px;height:23px;display:block;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.nv-quick-label{font-size:11px;font-weight:550;color:#555;white-space:nowrap}
+.nv-bottom{position:absolute;bottom:8px;left:0;right:0;display:flex;align-items:center;justify-content:space-around;height:52px;border-top:1px solid #eff0f1;background:rgba(255,255,255,.97);z-index:4}
+.nv-bottom span{width:24%;font-size:10px;color:#8b9097;display:flex;flex-direction:column;align-items:center;gap:4px}
+.nv-bottom span.active{color:#03c75a;font-weight:750}
+.nv-bottom svg{display:block;width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:800px){.page{padding:0}.home-dock .app{width:62px}}
+
+
+/* Naver: stable mobile layout – no overlapping icons or wallpaper bleed-through. */
+#appscreen.naver-mode{background:#ffffff!important;opacity:1;}
+#appscreen.naver-mode #appBody{display:block!important;flex:1 1 auto;min-height:0;overflow:hidden!important;padding:0!important;background:#ffffff!important;}
+#appscreen.naver-mode .naver-app{display:flex;flex-direction:column;height:100%;min-height:0;max-height:100%;overflow:hidden;padding:0!important;background:#ffffff!important;}
+#appscreen.naver-mode .nv-top{height:57px;min-height:57px;flex:0 0 57px;padding:3px 17px 0;gap:10px;}
+#appscreen.naver-mode .nv-top-left,#appscreen.naver-mode .nv-top-right{display:flex;align-items:center;gap:10px;min-width:0;}
+#appscreen.naver-mode .nv-icon-btn{width:32px;height:34px;flex:0 0 32px;padding:5px;display:grid;place-items:center;}
+#appscreen.naver-mode .nv-icon-btn svg{width:21px;height:21px;display:block;}
+#appscreen.naver-mode .nv-wordmark{font-size:23px;line-height:30px;letter-spacing:-1.7px;}
+#appscreen.naver-mode .nv-content{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;padding:9px 18px 21px;scrollbar-width:none;}
+#appscreen.naver-mode .nv-content::-webkit-scrollbar{display:none}
+#appscreen.naver-mode .nv-search-wrap{height:53px;min-height:53px;border-radius:17px;box-shadow:none;gap:8px;padding:0 9px 0 13px;}
+#appscreen.naver-mode .nv-search-mark{flex:0 0 21px;width:21px;line-height:1;font-size:25px;}
+#appscreen.naver-mode .nv-search-wrap input{min-width:0;flex:1 1 auto;width:1px;font-size:13px;}
+#appscreen.naver-mode .nv-tool{width:21px;height:28px;flex:0 0 21px;}
+#appscreen.naver-mode .nv-tool svg{width:18px;height:18px;display:block;}
+#appscreen.naver-mode .nv-search-submit{width:25px;height:28px;flex:0 0 25px;}
+#appscreen.naver-mode .nv-search-submit svg{width:21px;height:21px;}
+#appscreen.naver-mode .nv-suggestions-head{margin:23px 1px 9px;}
+#appscreen.naver-mode .nv-suggestions{width:100%;}
+#appscreen.naver-mode .nv-suggestion{min-height:46px;padding:11px 1px;gap:11px;font-size:13px;}
+#appscreen.naver-mode .nv-quick-title{margin:22px 1px 14px;}
+#appscreen.naver-mode .nv-quick-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px 6px;padding-bottom:8px;}
+#appscreen.naver-mode .nv-quick{width:100%;min-width:0;display:flex;align-items:center;flex-direction:column;gap:6px;}
+#appscreen.naver-mode .nv-quick-glyph{width:43px;height:43px;min-width:43px;min-height:43px;display:grid;place-items:center;border-radius:14px;}
+#appscreen.naver-mode .nv-quick-glyph svg{width:22px;height:22px;display:block;}
+#appscreen.naver-mode .nv-quick-label{font-size:11px;line-height:14px;white-space:nowrap;text-align:center;}
+#appscreen.naver-mode .nv-bottom{position:static!important;flex:0 0 56px;height:56px;min-height:56px;left:auto;right:auto;bottom:auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;padding:3px 8px 6px;margin:0;background:#fff;border-top:1px solid #eceef0;z-index:5;}
+#appscreen.naver-mode .nv-bottom span{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:10px;line-height:12px;}
+#appscreen.naver-mode .nv-bottom svg{width:19px;height:19px;display:block;flex-shrink:0;}
+@media(max-width:360px){#appscreen.naver-mode .nv-top{padding:3px 12px 0;}#appscreen.naver-mode .nv-content{padding-left:13px;padding-right:13px;}}
+
+
+#appscreen.naver-mode .nv-expand{appearance:none;border:0;background:#fff;color:#858b92;font-size:12px;font-weight:500;min-height:37px;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;border-bottom:1px solid #eef0f1;}
+#appscreen.naver-mode .nv-expand span{font-size:16px;line-height:1;}
 </style>
 </head>
 <body>
 <div class="page">
-  <aside class="intro">
-    <div class="eyebrow">A FICTIONAL PHONE · PROTOTYPE 01</div>
-    <h1>이동화의<br><em>iPhone.</em></h1>
-    <p class="tagline">평범한 교무실과, 두 번째로 준비하는 결혼.</p>
-    <p>이동화 선생님의 휴대폰을 열어 보세요. 메시지와 메모, 사진과 일정 속에서 형과의 이야기가 조금씩 드러납니다.</p>
-    <div class="pillrow"><span class="pill">다크 모드</span><span class="pill">선생님 × 선생님</span><span class="pill">재혼 준비</span><span class="pill">인터랙티브</span></div>
-    <p class="hint">현재는 구조와 조작감을 확인하는 첫 번째 시제품입니다. 인물 사진·날짜·대화는 이후에 보내주시는 실제 창작 설정으로 바꿀 수 있습니다. 화면을 위로 쓸거나 잠금 해제 문구를 눌러 시작하세요.</p>
-  </aside>
-  <main class="phone" aria-label="이동화의 아이폰 시뮬레이터">
+  <main class="phone" aria-label="이동화의 iPhone">
     <div class="screen" id="screen">
       <div class="wallpaper"></div>
       <div class="island"></div>
@@ -327,15 +407,14 @@ body{background:radial-gradient(ellipse at 18% 18%,#26203e 0%,transparent 40%),r
   </main>
 </div>
 <script>
-// 나중에 여기에 실제 창작 설정을 반영할 수 있습니다. 현재 등장하는 대화·일정·사진은 모두 시제품용 창작 샘플입니다.
 const CONFIG = {
   owner: '이동화', partner: '형',
   messages: [
-    {name:'삼성카드',avatar:'삼',preview:'[광고] 9월 생활 혜택을 확인해 보세요.',time:'9/27 09:12',sortAt:'2026-09-27T09:12:00',chat:[['in','[광고] 삼성카드 고객님께 안내드립니다. 9월 쇼핑 및 생활 혜택을 확인해 보세요.\n수신거부 080-000-0000 (가상 번호)']]},
+    {name:'삼성카드',avatar:'삼',preview:'[광고] 9월 생활 혜택을 확인해 보세요.',time:'9/27 09:12',sortAt:'2026-09-27T09:12:00',chat:[['in','[광고] 삼성카드 고객님께 안내드립니다. 9월 쇼핑 및 생활 혜택을 확인해 보세요.\n수신거부 080-000-0000']]},
     {name:'택배 안내',avatar:'택',preview:'주문하신 상품이 배송 완료되었습니다.',time:'9/25',sortAt:'2026-09-25T16:03:00',chat:[['in','[배송 안내] 주문하신 상품이 문 앞에 배송 완료되었습니다. 이용해 주셔서 감사합니다.']]},
     {name:'무신사',avatar:'무',preview:'[광고] 이번 주 인기 상품 소식이 도착했어요.',time:'9/24',sortAt:'2026-09-24T18:20:00',chat:[['in','[광고] 이번 주 인기 브랜드와 신상품을 만나보세요. 알림 수신 설정은 앱에서 변경하실 수 있습니다.']]},
     {name:'통신사 안내',avatar:'통',preview:'이번 달 요금 명세서가 발행되었습니다.',time:'9/21',sortAt:'2026-09-21T09:00:00',chat:[['in','[요금 안내] 이번 달 휴대전화 요금 명세서가 발행되었습니다. 자세한 내용은 이용 중인 통신사 앱에서 확인해 주세요.']]},
-    {name:'카드 결제 알림',avatar:'카',preview:'삼성카드 18,900원 이용',time:'9/19',sortAt:'2026-09-19T18:42:00',chat:[['in','[삼성카드] 09/19 18:42 18,900원 일시불 이용. 승인 내역은 카드 앱에서 확인하세요. (창작용 알림)']]},
+    {name:'카드 결제 알림',avatar:'카',preview:'삼성카드 18,900원 이용',time:'9/19',sortAt:'2026-09-19T18:42:00',chat:[['in','[삼성카드] 09/19 18:42 18,900원 일시불 이용. 승인 내역은 카드 앱에서 확인하세요.']]},
     {name:'계훈이',avatar:'계',preview:'퇴근하는 길에 이마트 갔다 가자',time:'9/28 18:36',sortAt:'2026-09-28T18:36:00',openable:true,chat:[
       ['stamp','9월 18일 · 금요일'],
       ['in','★ 매너콜 ★\n[통화중] 상황에서 고객님께\n걸려온 전화입니다.'],
@@ -350,7 +429,7 @@ const CONFIG = {
       ['in','★ 매너콜 ★\n[통화중] 상황에서 고객님께\n걸려온 전화입니다.'],
       ['in','퇴근하는 길에 이마트 갔다 가자']
     ]},
-    {name:'강동구청',avatar:'강',preview:'[강동구청] 혼인신고 처리가 완료되었습니다.',time:'9/16 15:40',sortAt:'2026-09-16T15:40:00',chat:[['in','[강동구청] 혼인신고 처리가 완료되었습니다.\n처리일: 2026.09.16\n※ 창작용 가상 안내 문자입니다.']]},
+    {name:'강동구청',avatar:'강',preview:'[강동구청] 혼인신고 처리가 완료되었습니다.',time:'9/16 15:40',sortAt:'2026-09-16T15:40:00',chat:[['in','[강동구청] 혼인신고 처리가 완료되었습니다.\n처리일: 2026.09.16']]},
     {name:'웨딩 상담',avatar:'W',preview:'상담 일정은 추후 조율 부탁드립니다.',time:'9/22',sortAt:'2026-09-22T14:05:00',chat:[['in','안녕하세요. 예식 관련 상담 도와드리겠습니다.'],['out','감사합니다. 일정 정해지면 다시 연락드릴게요.'],['in','상담 일정은 추후 조율 부탁드립니다.']]},
     {name:'교무실',avatar:'교',preview:'내일 회의 자료 확인 부탁드려요!',time:'9/23',sortAt:'2026-09-23T17:10:00',chat:[['in','내일 회의 자료 확인 부탁드려요!'],['out','네, 확인하겠습니다.']]}
   ],
@@ -371,11 +450,11 @@ const MAILS = [
  {sender:'보건실',subject:'2학년 보건교육 협조 요청',preview:'9월 9일 보건교육 진행 관련 안내',time:'9/7',body:'안녕하세요. 보건실입니다.\n\n9월 9일 2학년 각 반에서 보건교육을 실시합니다.\n수업 진행에 협조 부탁드립니다.\n감사합니다.'},
  {sender:'웨딩촬영 담당자',subject:'[웨딩촬영] 9월 26일 촬영 일정 및 준비물 안내',preview:'야외 촬영 당일 안내드립니다.',time:'9/23',body:'이동화 님, 형 안녕하세요.\n\n9월 26일(토) 야외 웨딩촬영을 앞두고 안내드립니다.\n\n촬영 장소: 야외 (세부 집합 장소 별도 협의)\n준비물: 촬영용 소품, 갈아입을 신발, 간단한 간식과 물\n\n현장 도착 및 헤어·의상 시간은 확정 후 다시 안내드리겠습니다.\n좋은 하루 보내세요.'},
  {sender:'로이스테일러',subject:'9월 5일 최종피팅 일정 안내',preview:'방문 일정과 피팅 관련 준비사항입니다.',time:'9/2',body:'이동화 님 안녕하세요.\n\n9월 5일(토) 최종피팅 일정 안내드립니다.\n장소: 로이스테일러\n\n편하게 착용 가능한 복장으로 방문 부탁드립니다.\n확인 감사합니다.'},
- {sender:'무신사',subject:'[광고] 이번 주 놓치면 아쉬운 신상품',preview:'관심 브랜드의 새로운 아이템을 만나보세요.',time:'9/21',body:'[광고] 무신사에서 이번 주 인기 상품과 신상품을 소개합니다.\n관심 브랜드와 시즌 아이템을 둘러보세요.\n\n※ 창작 웹사이트용 가상 광고 메일입니다.'},
- {sender:'후르츠패밀리',subject:'[광고] 취향에 맞는 빈티지 아이템 추천',preview:'새로 등록된 빈티지 상품을 확인해 보세요.',time:'9/18',body:'[광고] 후르츠패밀리에서 새로운 빈티지 아이템을 소개합니다.\n최근 등록된 의류와 액세서리를 살펴보세요.\n\n※ 창작 웹사이트용 가상 광고 메일입니다.'},
- {sender:'삼성카드',subject:'[광고] 9월 생활 혜택 안내',preview:'이번 달 쇼핑·생활 혜택을 확인해 보세요.',time:'9/16',body:'[광고] 삼성카드 고객님께 안내드립니다.\n이번 달 생활 및 쇼핑 관련 혜택을 확인해 보세요.\n\n※ 창작 웹사이트용 가상 광고 메일입니다.'},
- {sender:'네이버',subject:'새로운 로그인 알림',preview:'계정 보안 알림이 도착했습니다.',time:'9/13',body:'네이버 계정에 새로운 로그인 알림이 발생했습니다.\n본인의 이용 내역인지 확인해 주세요.\n\n※ 창작용 알림입니다.'},
- {sender:'컬리',subject:'[광고] 이번 주 장보기 추천 상품',preview:'이번 주 추천 식재료를 만나보세요.',time:'9/10',body:'[광고] 이번 주 장보기 추천 상품을 소개합니다.\n과일, 간편식, 신선식품을 둘러보세요.\n\n※ 창작 웹사이트용 가상 광고 메일입니다.'}
+ {sender:'무신사',subject:'[광고] 이번 주 놓치면 아쉬운 신상품',preview:'관심 브랜드의 새로운 아이템을 만나보세요.',time:'9/21',body:'[광고] 무신사에서 이번 주 인기 상품과 신상품을 소개합니다.\n관심 브랜드와 시즌 아이템을 둘러보세요.\n'},
+ {sender:'후르츠패밀리',subject:'[광고] 취향에 맞는 빈티지 아이템 추천',preview:'새로 등록된 빈티지 상품을 확인해 보세요.',time:'9/18',body:'[광고] 후르츠패밀리에서 새로운 빈티지 아이템을 소개합니다.\n최근 등록된 의류와 액세서리를 살펴보세요.\n'},
+ {sender:'삼성카드',subject:'[광고] 9월 생활 혜택 안내',preview:'이번 달 쇼핑·생활 혜택을 확인해 보세요.',time:'9/16',body:'[광고] 삼성카드 고객님께 안내드립니다.\n이번 달 생활 및 쇼핑 관련 혜택을 확인해 보세요.\n'},
+ {sender:'네이버',subject:'새로운 로그인 알림',preview:'계정 보안 알림이 도착했습니다.',time:'9/13',body:'네이버 계정에 새로운 로그인 알림이 발생했습니다.\n본인의 이용 내역인지 확인해 주세요.\n'},
+ {sender:'컬리',subject:'[광고] 이번 주 장보기 추천 상품',preview:'이번 주 추천 식재료를 만나보세요.',time:'9/10',body:'[광고] 이번 주 장보기 추천 상품을 소개합니다.\n과일, 간편식, 신선식품을 둘러보세요.\n'}
 ];
 // Keep the two inboxes ordered by message date, newest first.
 // Relative labels from the initial SMS mockup are now explicit September dates.
@@ -632,7 +711,7 @@ function renderInstagram(){
    <div class="ig-profile-buttons"><span>프로필 편집</span><span>프로필 공유</span></div></div>
    <div class="ig-profile-grid-tabs"><span class="ig-grid-heading">${IG_ICONS.grid}</span><span class="ig-grid-heading" style="border-bottom:none;color:#999">${IG_ICONS.tagged}</span></div>
    <div class="ig-profile-grid">${IG_POSTS.map(p=>`<button type="button" class="ig-profile-tile" data-ig-open-post="${p.id}" aria-label="${p.date} 게시물 열기"><img src="${p.src}" alt="${p.date} 게시물"></button>`).join('')}</div>
-   <div class="ig-profile-faint">창작용 인스타그램 화면</div>`;
+   `;
  }
  const b=$('appBody');
  b.innerHTML=`<div class="ig-shell"><div class="ig-content" id="igContent">${page}</div>${nav}</div>`;
@@ -700,33 +779,55 @@ function renderPhone(){
  const all=PHONE_CALLS;
  const shown=phoneFilter==='missed'?all.filter(x=>x.status==='missed'):all;
  const b=$('appBody');
- b.innerHTML=`<div class="ph-shell"><header class="ph-bar"><div class="ph-segment" role="group" aria-label="통화 기록 필터"><button type="button" class="${phoneFilter==='all'?'on':''}" data-ph-filter="all" aria-pressed="${phoneFilter==='all'}">전체</button><button type="button" class="${phoneFilter==='missed'?'on':''}" data-ph-filter="missed" aria-pressed="${phoneFilter==='missed'}">부재중</button></div></header><h2 class="ph-title">최근 통화</h2><div class="ph-list">${shown.map((c,i)=>`<div class="ph-call"><div class="ph-call-main"><strong class="${c.status==='missed'?'missed':''}">${htmlSafe(c.name)}</strong><span class="ph-detail">${c.callType==='발신'?'↗':c.callType==='수신'?'↙':'↙'} ${htmlSafe(c.callType)} · ${htmlSafe(phoneDateLabel(c.date))}</span></div><span class="ph-time">${htmlSafe(c.time)}</span><span class="ph-info" aria-hidden="true">ⓘ</span></div>`).join('')}</div><div class="ph-note">이동화의 가상 통화 기록 · 실제 통화 기능 없음</div><nav class="ph-tabs" aria-label="전화 앱"><span>☆<small>즐겨찾기</small></span><span class="on">◷<small>최근 통화</small></span><span>▦<small>키패드</small></span><span>♙<small>연락처</small></span></nav></div>`;
+ b.innerHTML=`<div class="ph-shell"><header class="ph-bar"><div class="ph-segment" role="group" aria-label="통화 기록 필터"><button type="button" class="${phoneFilter==='all'?'on':''}" data-ph-filter="all" aria-pressed="${phoneFilter==='all'}">전체</button><button type="button" class="${phoneFilter==='missed'?'on':''}" data-ph-filter="missed" aria-pressed="${phoneFilter==='missed'}">부재중</button></div></header><h2 class="ph-title">최근 통화</h2><div class="ph-list">${shown.map((c,i)=>`<div class="ph-call"><div class="ph-call-main"><strong class="${c.status==='missed'?'missed':''}">${htmlSafe(c.name)}</strong><span class="ph-detail">${c.callType==='발신'?'↗':c.callType==='수신'?'↙':'↙'} ${htmlSafe(c.callType)} · ${htmlSafe(phoneDateLabel(c.date))}</span></div><span class="ph-time">${htmlSafe(c.time)}</span><span class="ph-info" aria-hidden="true">ⓘ</span></div>`).join('')}</div><nav class="ph-tabs" aria-label="전화 앱"><span>☆<small>즐겨찾기</small></span><span class="on">◷<small>최근 통화</small></span><span>▦<small>키패드</small></span><span>♙<small>연락처</small></span></nav></div>`;
 }
 
+
 const NAVER_TERMS=['발리 신혼여행','괌 신혼여행','신혼여행지 추천','배우자 가족 선물','신혼여행 준비물 체크리스트','발리 1월 날씨','괌 여행 경비','결혼식 하객 답례품','신혼집 인테리어','여권 갱신 준비물'];
-const NAVER_SEARCH_ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="10.5" cy="10.5" r="6.8"/><path d="m16 16 5 5"/></svg>';
+const NV_ICONS={"menu":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><path d=\"M4 7h16M4 12h16M4 17h16\"/></svg>","bell":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><path d=\"M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4\"/></svg>","user":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><circle cx=\"12\" cy=\"8\" r=\"4\"/><path d=\"M4 21c0-5 3.5-7 8-7s8 2 8 7\"/></svg>","back":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><path d=\"M15 18l-6-6 6-6\"/></svg>","mic":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><rect x=\"9\" y=\"2.5\" width=\"6\" height=\"13\" rx=\"3\"/><path d=\"M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v4m-4 0h8\"/></svg>","camera":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><rect x=\"2.5\" y=\"6\" width=\"19\" height=\"14\" rx=\"3\"/><path d=\"M8 6l1.2-2h5.6L16 6\"/><circle cx=\"12\" cy=\"13\" r=\"3.6\"/></svg>","search":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\"/><path d=\"m15.5 15.5 5 5\"/></svg>","clock":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 6.5V12l4 2.5\"/></svg>","arrow":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><path d=\"M5 18 19 4M9 4h10v10\"/></svg>","mail":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><rect x=\"3\" y=\"5.5\" width=\"18\" height=\"13\" rx=\"2\"/><path d=\"m4 7 8 6 8-6\"/></svg>","coffee":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><path d=\"M4 8h13v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8Zm13 1h2a2.5 2.5 0 0 1 0 5h-2M7 3v3M12 3v3\"/></svg>","book":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><path d=\"M4 5h7a3 3 0 0 1 3 3v12H7a3 3 0 0 0-3 2V5Zm10 3a3 3 0 0 1 3-3h4v17a3 3 0 0 0-3-2h-4\"/></svg>","bag":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><path d=\"M4 8h16l-1 13H5L4 8ZM9 8V6a3 3 0 0 1 6 0v2\"/></svg>","news":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M7 8h10M7 12h4M7 16h4m3-4h4v4h-4z\"/></svg>","map":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><path d=\"m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5Zm6-2v16m6-14v16\"/></svg>","pay":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><rect x=\"2.5\" y=\"6\" width=\"19\" height=\"13\" rx=\"3\"/><path d=\"M6 11h12M6 15h5\"/></svg>","cloud":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><path d=\"M7.5 18.5h10a4 4 0 0 0 .5-8 6.5 6.5 0 0 0-12.5 1.5 3.4 3.4 0 0 0 2 6.5Z\"/></svg>","home":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><path d=\"m3 11 9-8 9 8v10h-6v-7H9v7H3V11Z\"/></svg>","play":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"4\"/><path d=\"m10 8 6 4-6 4V8Z\"/></svg>","compass":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"m15.5 8.5-2 5-5 2 2-5 5-2Z\"/></svg>"};
+const NV_QUICK=[
+ {name:'메일',icon:'mail',bg:'#e8f4fc',fg:'#2376d4'},
+ {name:'카페',icon:'coffee',bg:'#e6f5e8',fg:'#319c48'},
+ {name:'블로그',icon:'book',bg:'#e8f7ef',fg:'#15a569'},
+ {name:'쇼핑',icon:'bag',bg:'#fff0e7',fg:'#f77b3c'},
+ {name:'뉴스',icon:'news',bg:'#edf1fb',fg:'#597bc5'},
+ {name:'지도',icon:'map',bg:'#e6f7ed',fg:'#1b9d6f'},
+ {name:'페이',icon:'pay',bg:'#e9f5ff',fg:'#2583bb'},
+ {name:'날씨',icon:'cloud',bg:'#f0efff',fg:'#8270c9'}
+];
 function renderNaver(){
  const b=$('appBody');
- b.innerHTML=`<section class="naver-app"><div class="naver-head"><span class="naver-head-mark">N</span>NAVER</div>
- <form class="naver-search" id="naverSearchForm" role="search" autocomplete="off"><input id="naverQuery" type="search" aria-label="네이버 검색어" placeholder="검색어를 입력하세요"/><button type="submit" class="naver-submit" aria-label="네이버에서 검색">${NAVER_SEARCH_ICON}</button></form>
- <div class="naver-search-label"><span>연관 검색어</span><small>동화의 최근 관심사</small></div>
- <div class="naver-suggestion-list" id="naverSuggestions"></div><div class="naver-small-note">가상 휴대폰 속 네이버 검색 화면입니다</div></section>`;
+ b.innerHTML=`<section class="naver-app">
+  <div class="nv-top"><div class="nv-top-left"><button type="button" class="nv-icon-btn" id="naverBack" aria-label="홈으로">${NV_ICONS.back}</button><span class="nv-wordmark">NAVER</span></div><div class="nv-top-right"><span class="nv-icon-btn" aria-hidden="true">${NV_ICONS.bell}</span><span class="nv-icon-btn" aria-hidden="true">${NV_ICONS.menu}</span></div></div>
+  <div class="nv-content">
+  <form class="nv-search-wrap" id="naverSearchForm" role="search" autocomplete="off"><span class="nv-search-mark">N</span><input id="naverQuery" type="search" aria-label="네이버 검색어" placeholder="검색어를 입력하세요"/><span class="nv-tool" aria-hidden="true">${NV_ICONS.mic}</span><span class="nv-tool" aria-hidden="true">${NV_ICONS.camera}</span><button type="submit" class="nv-search-submit" aria-label="검색하기">${NV_ICONS.search}</button></form>
+  <div class="nv-suggestions-head"><strong>최근 검색어</strong><span>9월 30일</span></div>
+  <div class="nv-suggestions" id="naverSuggestions"></div>
+  <button type="button" class="nv-expand" id="naverExpand">최근 검색어 더 보기 <span aria-hidden="true">⌄</span></button>
+  <h3 class="nv-quick-title">바로가기</h3>
+  <div class="nv-quick-grid">${NV_QUICK.map(q=>`<div class="nv-quick"><span class="nv-quick-glyph" style="--quick-bg:${q.bg};--quick-fg:${q.fg}">${NV_ICONS[q.icon]}</span><span class="nv-quick-label">${q.name}</span></div>`).join('')}</div>
+  </div>
+  <div class="nv-bottom" aria-hidden="true"><span class="active">${NV_ICONS.home}홈</span><span>${NV_ICONS.bag}쇼핑</span><span>${NV_ICONS.play}클립</span><span>${NV_ICONS.compass}콘텐츠</span></div>
+ </section>`;
  updateNaverSuggestions('');
- const f=b.querySelector('#naverSearchForm');
- f.addEventListener('submit',e=>{e.preventDefault();const term=b.querySelector('#naverQuery').value.trim();if(!term)return;window.open('https://search.naver.com/search.naver?query='+encodeURIComponent(term),'_blank','noopener,noreferrer')});
- const inp=b.querySelector('#naverQuery');
- inp.addEventListener('input',()=>updateNaverSuggestions(inp.value));
- // Avoid automatically opening the phone keyboard on app launch.
+ b.querySelector('#naverBack').addEventListener('click',()=>{currentApp='';subpage=null;show('home')});
+ b.querySelector('#naverSearchForm').addEventListener('submit',e=>{e.preventDefault();const term=b.querySelector('#naverQuery').value.trim();if(!term)return;window.open('https://search.naver.com/search.naver?query='+encodeURIComponent(term),'_blank','noopener,noreferrer')});
+ b.querySelector('#naverQuery').addEventListener('input',e=>{naverShowAll=false;updateNaverSuggestions(e.target.value)});
+ b.querySelector('#naverExpand').addEventListener('click',()=>{naverShowAll=!naverShowAll;updateNaverSuggestions(b.querySelector('#naverQuery').value)});
 }
+let naverShowAll=false;
 function updateNaverSuggestions(query){
  const target=document.getElementById('naverSuggestions');if(!target)return;
- const words=NAVER_TERMS.filter(t=>!query||t.includes(query)).slice(0,10);
- target.innerHTML=(words.length?words:[query]).map(term=>`<button type="button" class="naver-suggestion" data-naver-term="${htmlSafe(term)}"><span class="suggest-icon">${NAVER_SEARCH_ICON}</span><span>${htmlSafe(term)}</span><span class="s-arrow">↗</span></button>`).join('');
+ const filtered=NAVER_TERMS.filter(t=>!query||t.includes(query));
+ const words=filtered.slice(0,naverShowAll?10:5);
+ const more=document.getElementById('naverExpand');
+ if(more){more.style.display=filtered.length>5?'flex':'none';more.innerHTML=naverShowAll?'접기 <span aria-hidden="true">⌃</span>':'최근 검색어 더 보기 <span aria-hidden="true">⌄</span>';}
+ target.innerHTML=(words.length?words:(query?[query]:[])).map(term=>`<button type="button" class="nv-suggestion" data-naver-term="${htmlSafe(term)}"><span class="nv-sug-icon">${NV_ICONS.clock}</span><span class="nv-sug-text">${htmlSafe(term)}</span><span class="nv-sug-action">${NV_ICONS.arrow}</span></button>`).join('');
 }
 function renderApp(){ $('appscreen').classList.toggle('insta-mode',currentApp==='insta');$('appscreen').classList.toggle('music-mode',currentApp==='music');$('appscreen').classList.toggle('kakao-mode',currentApp==='kakao');$('appscreen').classList.toggle('naver-mode',currentApp==='naver');$('screen').classList.toggle('naver-screen',currentApp==='naver'); const a=apps.find(x=>x.id===currentApp);$('backLabel').textContent=subpage?'목록':'홈';$('appTitle').textContent=subpage?.title||a?.label||'앱';const b=$('appBody');b.scrollTop=0;
  if(currentApp==='messages'){
-  if(subpage?.type==='chat'){const c=CONFIG.messages[subpage.idx];b.innerHTML=`<div class="detail-area"><div class="chat-body"><div class="chat-datestamp">시제품용 창작 대화 · 실제 메시지가 아닙니다</div>${c.chat.map(([dir,t])=>dir==='stamp'?`<div class="chat-datestamp">${htmlSafe(t)}</div>`:dir==='system'?`<div class="chat-system">${htmlSafe(t)}</div>`:`<div class="bubble-row ${dir}"><div class="bubble">${htmlSafe(t)}</div></div>`).join('')}</div><div class="chat-composer"><button class="plus-circle" aria-label="추가 기능 (시제품)">+</button><div class="chat-field">메시지 입력 · 시제품에서는 읽기 전용</div></div></div>`;const log=b.querySelector('.chat-body');if(log)log.scrollTop=log.scrollHeight;return}
-  b.innerHTML='<h2 class="section-title">메시지</h2><div class="demo-note">최신순 정렬 · 계훈이와의 대화만 열 수 있어요.</div>'+CONFIG.messages.map((c,i)=>{
+  if(subpage?.type==='chat'){const c=CONFIG.messages[subpage.idx];b.innerHTML=`<div class="detail-area"><div class="chat-body">${c.chat.map(([dir,t])=>dir==='stamp'?`<div class="chat-datestamp">${htmlSafe(t)}</div>`:dir==='system'?`<div class="chat-system">${htmlSafe(t)}</div>`:`<div class="bubble-row ${dir}"><div class="bubble">${htmlSafe(t)}</div></div>`).join('')}</div><div class="chat-composer"><button class="plus-circle" aria-label="추가">+</button><div class="chat-field">메시지 입력</div></div></div>`;const log=b.querySelector('.chat-body');if(log)log.scrollTop=log.scrollHeight;return}
+  b.innerHTML='<h2 class="section-title">메시지</h2>'+CONFIG.messages.map((c,i)=>{
     const row=`<span class="avatar">${htmlSafe(c.avatar)}</span><span class="message-info"><span class="message-top"><strong>${htmlSafe(c.name)}</strong><small>${htmlSafe(c.time)} ${c.openable?'›':''}</small></span><span class="message-sub">${htmlSafe(c.preview)}</span></span>`;
     return c.openable?`<button type="button" class="message-item" data-chat="${i}" aria-label="계훈이와의 대화 열기">${row}</button>`:`<div class="message-item message-inert">${row}</div>`;
    }).join('');return;
@@ -742,8 +843,8 @@ function renderApp(){ $('appscreen').classList.toggle('insta-mode',currentApp===
  }
 
  if(currentApp==='notes'){
-  if(subpage?.type==='note'){const n=CONFIG.notes[subpage.idx];b.innerHTML=`<div class="notes-meta">${htmlSafe(n.date)} · 샘플 메모</div><div class="note-content">${htmlSafe(n.content)}</div>`;return}
-  b.innerHTML='<h2 class="section-title">메모</h2><div class="demo-note">동화의 생각을 엿보는 메모 앱. 내용은 임시로 쓴 예시입니다.</div><div class="notes-list">'+CONFIG.notes.map((n,i)=>`<button class="note-item" data-note="${i}"><strong>${htmlSafe(n.title)}</strong><div class="note-summary">${htmlSafe(n.content.replaceAll('\n',' '))}</div></button>`).join('')+'</div>';return;
+  if(subpage?.type==='note'){const n=CONFIG.notes[subpage.idx];b.innerHTML=`<div class="notes-meta">${htmlSafe(n.date)}</div><div class="note-content">${htmlSafe(n.content)}</div>`;return}
+  b.innerHTML='<h2 class="section-title">메모</h2><div class="notes-list">'+CONFIG.notes.map((n,i)=>`<button class="note-item" data-note="${i}"><strong>${htmlSafe(n.title)}</strong><div class="note-summary">${htmlSafe(n.content.replaceAll('\n',' '))}</div></button>`).join('')+'</div>';return;
  }
  if(currentApp==='calendar'){
   b.innerHTML=buildCalendar();return;
@@ -752,15 +853,15 @@ function renderApp(){ $('appscreen').classList.toggle('insta-mode',currentApp===
  if(currentApp==='kakao'){renderKakao();return;}
  if(currentApp==='naver'){renderNaver();return;}
  if(currentApp==='mail'){
-  b.innerHTML='<h2 class="section-title">받은 편지함</h2><div style="color:#999;font-size:12px;margin:0 20px 14px">최신순 정렬 · 미리보기 전용 · 창작용 가상 메일</div>'+MAILS.map((m,i)=>`<div class="message-item message-inert"><span class="avatar" style="background:${i<6?'#4978b8':'#62616e'};font-size:15px">${htmlSafe(m.sender[0])}</span><span class="message-info"><span class="message-top"><strong>${htmlSafe(m.sender)}</strong><small>${htmlSafe(m.time)}</small></span><span class="message-sub" style="color:#eee">${htmlSafe(m.subject)}</span><div class="message-sub">${htmlSafe(m.preview)}</div></span></div>`).join('');return;
+  b.innerHTML='<h2 class="section-title">받은 편지함</h2><div style="color:#999;font-size:12px;margin:0 20px 14px">받은 편지</div>'+MAILS.map((m,i)=>`<div class="message-item message-inert"><span class="avatar" style="background:${i<6?'#4978b8':'#62616e'};font-size:15px">${htmlSafe(m.sender[0])}</span><span class="message-info"><span class="message-top"><strong>${htmlSafe(m.sender)}</strong><small>${htmlSafe(m.time)}</small></span><span class="message-sub" style="color:#eee">${htmlSafe(m.subject)}</span><div class="message-sub">${htmlSafe(m.preview)}</div></span></div>`).join('');return;
  }
  if(currentApp==='phoneapp'){renderPhone();return;}
  if(currentApp==='contacts'){
-  b.innerHTML=`<h2 class="section-title">${currentApp==='contacts'?'연락처':'최근 통화'}</h2><div class="profile-card"><span class="avatar">동</span><h3>이동화</h3><p>선생님 · 나의 카드</p></div><div class="contact"><span class="avatar">계</span><div><strong>형 ♡</strong><small>같은 학교 선생님 · 결혼 예정</small></div></div><div class="contact"><span class="avatar">W</span><div><strong>웨딩 상담</strong><small>임시 연락처</small></div></div><div class="demo-note">실제 번호나 통화 기능은 없고, 설정에 맞춰 꾸민 화면입니다.</div>`;return;
+  b.innerHTML=`<h2 class="section-title">${currentApp==='contacts'?'연락처':'최근 통화'}</h2><div class="profile-card"><span class="avatar">동</span><h3>이동화</h3><p>선생님 · 나의 카드</p></div><div class="contact"><span class="avatar">계</span><div><strong>형 ♡</strong><small>같은 학교 선생님 · 결혼 예정</small></div></div><div class="contact"><span class="avatar">W</span><div><strong>웨딩 상담</strong><small>웨딩 준비</small></div></div>`;return;
  }
  if(currentApp==='insta'){renderInstagram();return;}
  if(currentApp==='settings'){
-  b.innerHTML=`<h2 class="section-title">설정</h2><div class="profile-card"><span class="avatar">동</span><h3>이동화</h3><p>iPhone · 창작 캐릭터</p></div><div class="setting-row"><span>디스플레이</span><span>다크 모드</span></div><div class="setting-row"><span>잠금화면</span><span>활성화</span></div><div class="setting-row"><span>콘텐츠</span><span>시제품 샘플</span></div><button class="setting-action" data-lock="true">🔒 휴대폰 잠그기</button><div class="demo-note">이것은 실존 인물의 실제 휴대폰이 아닌 창작 웹사이트입니다.</div>`;return;
+  b.innerHTML=`<h2 class="section-title">설정</h2><div class="profile-card"><span class="avatar">동</span><h3>이동화</h3><p>나의 iPhone</p></div><div class="setting-row"><span>디스플레이</span><span>다크 모드</span></div><div class="setting-row"><span>잠금화면</span><span>활성화</span></div><button class="setting-action" data-lock="true">🔒 휴대폰 잠그기</button>`;return;
  }
 }
 $('appBack').addEventListener('click',()=>{if(subpage){subpage=null;renderApp()}else{currentApp='';show('home')}});
