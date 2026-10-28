@@ -526,13 +526,11 @@ function renderMusic(){
  b.style.setProperty('--player-bg',t.background);
  b.innerHTML=`<div class="music-player" id="musicPlayer">
    <div class="music-overline"><span>동화의 음악</span><strong>NOW PLAYING</strong></div>
-   <div class="music-cover-window" id="musicSwipeRegion" aria-label="앨범 사진을 오른쪽으로 넘기면 다음 곡"><img class="music-cover-image" src="${t.cover}" alt="${htmlSafe(t.title)} 앨범 커버" draggable="false"></div>
+   <div class="music-cover-window" id="musicSwipeRegion" aria-label="앨범 커버"><img class="music-cover-image" src="${t.cover}" alt="${htmlSafe(t.title)} 앨범 커버" draggable="false"></div>
    <div class="music-meta"><div><h2>${htmlSafe(t.title)}</h2><p>${htmlSafe(t.artist)}</p></div><span class="music-heart" aria-hidden="true">♡</span></div>
-   <div class="music-counter">${musicIndex+1} / ${MUSIC_TRACKS.length}　·　오른쪽으로 넘겨 다음 곡</div>
+   <div class="music-counter">${musicIndex+1} / ${MUSIC_TRACKS.length}</div>
    <div class="music-timeline"><input class="music-seek" id="musicSeek" data-music-seek type="range" min="0" max="${t.duration}" step="1" value="0" aria-label="재생 위치"><div class="music-times"><span id="musicElapsed">0:00</span><span id="musicDuration">${musicClock(t.duration)}</span></div></div>
    <div class="music-btn-row"><button class="music-control" type="button" data-music="previous" aria-label="이전 곡">${musicSVG.prev}</button><button class="music-control main" type="button" data-music="toggle" id="musicPlayButton" aria-label="재생">${playing?musicSVG.pause:musicSVG.play}</button><button class="music-control" type="button" data-music="next" aria-label="다음 곡">${musicSVG.next}</button></div>
-   <div class="music-file-actions"><span class="music-file-status" id="musicFileStatus">♫ 업로드된 오디오 ${musicIndex+1}번 · 재생 가능</span></div>
-   <div class="music-hint">업로드한 미리듣기 구간이 재생됩니다. 앨범을 오른쪽으로 밀면 다음 곡으로 넘어가요.</div>
  </div>`;
  musicUpdateProgress();
 }
